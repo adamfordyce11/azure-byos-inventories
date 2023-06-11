@@ -1,0 +1,22 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+# When true this will pass the script data into the VM creation process
+userdata: false
+
+# Add a userdata script to add into the VM when it is starting up
+userdata_script:
+
+...
