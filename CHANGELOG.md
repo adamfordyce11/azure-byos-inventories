@@ -73,5 +73,5 @@ Copy the following section as the starting point for your initial update
 - Your bug fix or issue resolution description goes here.
 -->
 
-[Unreleased]: https://github.com/your-project/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/your-project/releases/tag/v1.0.0
+[Unreleased]: https://github.com/adamfordyce11/azure-inventories/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/adamfordyce11/azure-inventories/releases/tag/v1.0.0
