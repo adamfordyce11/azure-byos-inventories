@@ -1,0 +1,75 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+# Azure Region
+site_azure_region: uksouth
+
+# Virtual Network CIDR
+site_supernet_cidr: "10.10.0.0/22"
+
+# Subnet CIDR
+site_subnet_cidr: "10.10.0.0/24"
+
+# Azure Resource Group Names
+# - Must be between 1 and 90 characters long.
+# - Can include alphanumeric characters and hyphens.
+# - Must start with a letter and end with a letter or number.
+site_resource_group: rhel-sap-hana-staging
+site_storage_resource_group: vm-images
+
+# Virtual Network Name
+# - Must be between 1 and 64 characters long.
+# - Can include alphanumeric characters, periods, and hyphens.
+# - Must start with a letter or number.
+site_virtual_network: "{{ site_resource_group }}-vnet1"
+
+# Subnet Name
+# - Must be between 1 and 80 characters long.
+# - Can include alphanumeric characters, periods, and hyphens.
+# - Must start with a letter or number.
+site_virtual_network_subnet: "{{ site_resource_group }}-subnet1"
+
+# Storage Account Name
+# - Must be between 3 and 24 characters long.
+# - Can include lowercase alphanumeric characters only.
+# - Must start with a letter.
+# - Must be unique within Azure.
+site_storage_account: "{{ site_client_name | lower }}{{ site_resource_group | replace('-', '') }}str01"
+
+# Storage Container Name:
+# - Must be between 3 and 63 characters long.
+# - Can include lowercase alphanumeric characters and hyphens.
+# - Must start with a letter or number.
+# - Must not contain consecutive hyphens.
+# - Must be unique within the storage account.
+site_storage_container: "{{ site_resource_group | replace('-', '') }}cont"
+
+# Availability Set Name:
+# - Must be between 1 and 80 characters long.
+# - Can include alphanumeric characters, periods, underscores, and hyphens.
+# - Must start with a letter.
+# - Must be unique within Azure.
+site_availability_set: "{{ site_resource_group | replace('-', '') }}avset"
+
+#
+# Conditional Options
+#
+
+# Create the machines inside the `azure` Ansible group when initialising the Azure environment
+site_provisioner_required: false
+
+# Prepare image for SAP HANA, required when starting point is a BYOS/Non OSImage image
+site_sap_staging_setup: true
+...

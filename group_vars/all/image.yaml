@@ -1,0 +1,43 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+# Image Version
+# Version of the image being used, e.g., 1.0.0.
+# Note: This is overridden during image generation
+site_image_version: "1.0.0"
+
+# CIS Report Name
+# Name of the CIS report for the RHEL 8.4 SAP server, e.g., rhel8.4-sap-cis-server-l1.
+site_cis_report_name: rhel8.4-sap-cis-server-l1
+
+# Image Format
+# Format of the image, e.g., vhd.
+# Note: Not Required for BYOS Source Images
+##site_image_format: "vhd"
+
+# Image Suffix
+# Suffix to be appended to the image name, e.g., vhd.xz.
+# Note: Not Required for BYOS Source Images
+##site_image_suffix: "vhd.xz"
+
+# Image Name
+# Name of the image generated using the CIS report and version, e.g., rhel8.4-sap-cis-server-l1-1.0.0.
+site_image_name: "{{ site_cis_report_name }}-{{ site_image_version }}"
+
+# Image Name (Staging)
+# Name of the staging image, derived from the image name, e.g., rhel8.4-sap-cis-server-l1-1.0.0-staging.
+site_image_name_staging: "{{ site_image_name }}-staging"
+
+...

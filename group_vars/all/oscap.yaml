@@ -1,0 +1,24 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+# OpenSCAP Report
+# Name of the OpenSCAP report, e.g., ssg-rhel8-ds.
+site_openscap_report: "ssg-rhel8-ds"
+
+# OpenSCAP Profile
+# Name of the OpenSCAP profile, e.g., content_profile_cis_server_l1.
+site_openscap_profile: "content_profile_cis_server_l1"
+
+...

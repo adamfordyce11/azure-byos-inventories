@@ -1,0 +1,45 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+#
+# Note Pipelines are WIP and not fully integrated yet
+#
+
+# DevOps Project Name
+# Name of the DevOps project in Azure DevOps.
+site_devops_project: rhel-sap-image-do
+
+# DevOps Build Pipeline Name
+# Name of the build pipeline in Azure DevOps for the RHEL8.4-SAP-HA-TEST project.
+site_devops_build_pipeline: RHEL8.4-SAP-HA-TEST-PIPELINE
+
+# DevOps Service Connection Name
+# Name of the service connection in Azure DevOps for the rhel-sap-af project.
+site_devops_service_connection: rhel-sap-image-sc
+
+# DevOps Branch
+# Name of the branch in the version control system (e.g., Git) for the rhel-sap-af project.
+site_devops_branch: main
+
+# TODO: Document these parameters
+
+# Azure DevOps
+vault_azure_devops_project: projname
+vault_azure_devops_org: orgname
+
+# Azure DevOps Pipeline
+vault_azure_devops_repo: https://git.repo
+vault_azure_devops_build_pipeline_yml: my-pipeline.yml
+...
