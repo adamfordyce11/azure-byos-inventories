@@ -1,0 +1,85 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+# Virtual Machine
+# The hostname of the virtual machine.
+virtual_machine: "{{ inventory_hostname }}"
+
+# Public IP
+# The public IP address of the virtual machine.
+public_ip: "{{ virtual_machine_name }}-public-ip"
+
+# Network Interface Card (NIC)
+# The network interface card associated with the virtual machine.
+nic: "{{ virtual_machine_name }}-nic"
+
+# Security Group
+# The name of the security group associated with the virtual machine.
+security_group: "{{ site_resource_group }}-{{ virtual_machine }}-secgroup"
+
+# Security Group Rules
+# The rules defining the inbound access to the security group.
+security_group_rules:
+  - name: SSH
+    protocol: Tcp
+    destination_port_range: 22
+    access: Allow
+    priority: 1001
+    direction: Inbound
+  - name: OSBuild-Composer
+    protocol: Tcp
+    destination_port_range: 9090
+    access: Allow
+    priority: 1002
+    direction: Inbound
+
+# Virtual Machine Flavor
+# The flavor (size) of the virtual machine.
+# 2 vCPU, 8 GB RAM
+flavor: Standard_D2as_v4
+
+# Azure Image
+# The Azure image details used for provisioning the virtual machine.
+# Use the appropriate offer, publisher, SKU, and version based on your requirements.
+azure_image:
+  offer: "rhel-raw"
+  publisher: "RedHat"
+  sku: "8-raw-gen2"
+  version: "8.5.2022032202"
+
+# Group RHEL Version
+# The version of Red Hat Enterprise Linux (RHEL) used in the group.
+group_rhel_version: "8.5"
+
+# OS Disk Size
+# The size (in GB) of the operating system (OS) disk.
+os_disk_size: 250
+
+# Host Image Destination
+# The destination path for the host image.
+host_image_dest: "/root/{{ site_image_name_staging }}.{{ site_image_format }}"
+
+# Blob Image Source
+# The source URL of the blob image.
+blob_image_source: "https://{{ site_storage_account }}.blob.core.windows.net/{{ site_storage_container }}/{{ site_image_name }}-staging.{{ site_image_format }}"
+
+# Repositories
+# The list of repositories for package installation.
+# Add or modify the repository names based on your requirements.
+repos:
+  - "rhel-8-for-x86_64-baseos-rpms"
+  - "rhel-8-for-x86_64-appstream-rpms"
+
+...
