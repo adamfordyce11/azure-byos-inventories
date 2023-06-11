@@ -1,0 +1,34 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+# Set the size of the logical volumes on the image
+site_volume_groups:
+  - lvname: homelv
+    lvsize: 8 GiB
+    vggroup: rootvg
+  - lvname: rootlv
+    lvsize: 16 GiB
+    vggroup: rootvg
+  - lvname: tmplv
+    lvsize: 16 GiB
+    vggroup: rootvg
+  - lvname: usrlv
+    lvsize: 22 GiB
+    vggroup: rootvg
+  - lvname: varlv
+    lvsize: 22 GiB
+    vggroup: rootvg
+
+...

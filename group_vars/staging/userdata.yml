@@ -1,0 +1,27 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration parameters and variables
+# used in the Ansible playbook for deploying and managing infrastructure
+# and applications.
+#
+# Contact: Adam Fordyce - <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+# Please review and modify the values below to match your environment.
+
+userdata: true
+userdata_script: |-
+  #!/usr/bin/bash
+
+
+  # Ensure the firewall is running with port 22 through
+  /usr/bin/firewall-offline-cmd --set-default-zone=drop
+  /usr/bin/firewall-offline-cmd --add-port=22/tcp --zone drop
+  /usr/bin/systemctl enable firewalld
+  /usr/bin/systemctl restart firewalld
+
+...
