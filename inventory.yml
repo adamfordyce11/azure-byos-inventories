@@ -1,0 +1,24 @@
+---
+# Ansible Inventory File
+#
+# This inventory file contains the configuration for the different groups
+# and hosts required for the hardened image generation workflow
+#
+# Contact: Adam Fordyce <adam.fordyce@capgemini.com>
+# Version: 1.0
+# Last Updated: 11th June 2023
+# Source Control: https://github.com/adamfordyce11/azure-inventories.git
+# Documentation: https://github.com/adamfordyce11/azure-inventories
+#
+all:
+  children:
+    azure:
+      hosts:
+        provisioner:
+    staging:
+      hosts:
+        staging01:
+    test:
+      hosts:
+        test01:
+...
